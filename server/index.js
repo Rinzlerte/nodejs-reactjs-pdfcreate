@@ -11,7 +11,7 @@ app.use(cors());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
-// POST - PDF GENERATION with fetching data
+// POST - PDF GENERATION with fetching data //
 
 app.post('/create-pdf', (req, res) => {
     pdf.create(pdfTemplate(req.body), {}).toFile('result.pdf', (err) => {
@@ -23,7 +23,7 @@ app.post('/create-pdf', (req, res) => {
     });
 });
 
-//GET - SEND GENERATED PDF TO THE CLIENT
+// GET - SEND GENERATED PDF TO THE CLIENT //
 
 app.get('/fetch-pdf', (req, res) => {
     res.sendFile(`${__dirname}/result.pdf`)
